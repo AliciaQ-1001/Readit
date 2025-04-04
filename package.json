@@ -1,0 +1,26 @@
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "nodemon --exec electron . --watch ./ --ext .js,.html,.css,.vue"
+  },
+  "dependencies": {
+    "pinia": "^3.0.1",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "electron": "^35.1.3",
+    "electron-win-state": "^1.1.22",
+    "lodash": "^4.17.21",
+    "nodemon": "^3.1.9",
+    "store2": "^2.14.4",
+    "stylus": "^0.64.0",
+    "vite": "^6.2.0"
+  }
+}
