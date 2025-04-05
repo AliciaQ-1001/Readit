@@ -30,7 +30,14 @@ const createWindow = () => {
     //窗口创建后先不显示，等我手动调用.show() 再显示出来
     show: false//会导致无法正常显示
   })
+
   mainWindow.loadURL('http://localhost:5173')
+
+  // if (process.env.NODE_ENV === 'development') {
+  //   win.loadURL('http://localhost:5173') // dev 模式
+  // } else {
+  //   win.loadFile(path.join(__dirname, './dist/index.html')) // 打包后加载静态文件
+  // }
   mainWindow.webContents.openDevTools() // 确保打开 DevTools
 
   winState.manage(mainWindow)//electron-window-state 自动监听窗口的大小、位置变化，并在窗口关闭时保存这些状态，下次启动时恢复。

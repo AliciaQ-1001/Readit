@@ -78,7 +78,7 @@ const handelDelClick = (ws) => {
     }
 
     &.selected {
-      border-left-color: dodgerblue;
+      border-left-color: #3b645f;
     }
 
     button {

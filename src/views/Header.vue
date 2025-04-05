@@ -56,7 +56,7 @@
 <style lang="stylus">
 .header-container {
   display: flex;
-  background: #1e90ff;
+  background: #3b645f;
   height: 44px;
 
   div {

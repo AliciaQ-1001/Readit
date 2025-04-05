@@ -42,7 +42,7 @@ div.search-container {
   .button {
     width: 40px;
     height: 40px;
-    background-color: #1e90ff;
+    background-color: #3b645f;
     padding-left: 0;
     border-radius: 5px;
     font-size: 30px;
