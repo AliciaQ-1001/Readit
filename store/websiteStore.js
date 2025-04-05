@@ -43,7 +43,7 @@ const useWebsiteStore = defineStore('websiteStore', {
         }
         else {
           const result = _.filter(this.websites, (item) => {
-            let partten = new RegExp(keywords, 'i')
+            let partten = new RegExp(keywords, 'i')//正则表达式，模板
             return partten.test(item.title)
           })
           return result

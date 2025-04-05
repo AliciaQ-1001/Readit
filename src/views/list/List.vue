@@ -1,30 +1,32 @@
 <script setup>
-import { onMounted, ref } from "vue";
-// import useWebsites from "./useWebsites";
-// import useIndex from "./useIndex.js";
-import useWebsiteStore from "../../../store/websiteStore";
-const websiteStore = useWebsiteStore();
-// const { currentIndex, handleItemClick } = useIndex();
-onMounted(() => {
-  websiteStore.init();
-});
-const currentIndex = ref(0);
-const handleItemClick = (i, url) => {
-  currentIndex.value = i;
-};
-// const handelDelClick = (ws) => {
-//   websiteStore.deleteItem(ws.url);
-//   currentIndex.value = 0;
+//封装之后再说，现在模块化后存储的渲染失败
+// import { onMounted, ref } from "vue";
+import useWebsites from "./useWebsites";
+import useIndex from "./useIndex.js";
+// import useWebsiteStore from "../../../store/websiteStore";
+// const websiteStore = useWebsiteStore();
+const { websiteStore, keywords } = useWebsites();
+const { currentIndex, handleItemClick } = useIndex();
+// onMounted(() => {
+//   websiteStore.init();
+// });
+// const currentIndex = ref(0);
+// const handleItemClick = (i, url) => {
+//   currentIndex.value = i;
 // };
+const handelDelClick = (ws) => {
+  websiteStore.deleteItem(ws.url);
+  currentIndex.value = 0;
+};
 </script>
 
 <template>
   <div>
-    <p id="no-items" v-if="websiteStore.websites.length <= 0">暂无数据</p>
+    <p id="no-items" v-if="websiteStore.find(keywords).length <= 0">暂无数据</p>
     <div id="items" v-else>
       <div
         class="read-item"
-        v-for="(ws, i) in websiteStore.websites"
+        v-for="(ws, i) in websiteStore.find(keywords)"
         :key="ws.url"
         :class="{ selected: currentIndex === i }"
         @click="handleItemClick(i, ws.url)"
@@ -35,6 +37,7 @@ const handleItemClick = (i, url) => {
         <!-- stop的作用就是防止在点击关闭时开启窗口_阻止冒泡 -->
       </div>
     </div>
+    <!-- <div>{{ keywords }}</div> -->
   </div>
 </template>
 <style lang="stylus">

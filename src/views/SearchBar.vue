@@ -1,12 +1,20 @@
 <script setup>
 import { inject, watch } from "vue";
-// import _ from "lodash";
+import _ from "lodash";
 
 const { setIsShow } = inject("dialog-visible");
-// const { setKeywords } = inject("searchbar-keywords");
+const { setKeywords } = inject("searchbar-keywords");
 const handleClick = () => {
   setIsShow(true);
 };
+
+// 防抖动，节流
+const search = _.debounce((e) => {
+  setKeywords(e.target.value);
+}, 500);
+// const search = (e) => {
+//   console.log(e.target.value);
+// };
 </script>
 
 <template>

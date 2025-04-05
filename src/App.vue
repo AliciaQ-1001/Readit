@@ -10,6 +10,15 @@ provide("dialog-visible", {
   isShow,
   setIsShow,
 });
+//搜索的关键字定义
+const keywords = ref("");
+const setKeywords = (value) => {
+  keywords.value = value;
+};
+provide("searchbar-keywords", {
+  keywords,
+  setKeywords,
+});
 </script>
 
 <template>
