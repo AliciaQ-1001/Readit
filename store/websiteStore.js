@@ -13,7 +13,7 @@ const useWebsiteStore = defineStore('websiteStore', {
       if (_.find(this.websites, { url: item.url })) {
         myApi.alert('此网站已被添加') //直接在这里alert好像会出问题,要用myApi调
       } else {
-        console.log('zundududu', item);
+        // console.log('zundududu', item);
         this.websites.unshift(item)
         // console.log(store);
         store('websites', this.websites)
@@ -23,7 +23,7 @@ const useWebsiteStore = defineStore('websiteStore', {
     //让缓存直接渲染到页面
     init() {
       const cachedWebsites = store.get('websites');
-      console.log(cachedWebsites); // 查看缓存内容
+      // console.log(cachedWebsites); // 查看缓存内容
       this.websites = cachedWebsites || []; // 如果缓存为空，初始化为空数组
     },
 

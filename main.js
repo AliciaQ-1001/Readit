@@ -5,8 +5,8 @@ const WinState = require('electron-win-state').default
 require('./controller/getSource')
 require('./controller/alert')
 require('./controller/openWindow')
-// require('./controller/getFilelist')
-// require('./controller/buildMenu')
+require('./controller/getFilelist')
+require('./controller/buildMenu')
 
 let mainWindow;
 

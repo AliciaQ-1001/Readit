@@ -1,6 +1,7 @@
 <script setup>
 import { provide, ref } from "vue";
-import Home from "./views/Home.vue";
+import Header from "./views/Header.vue";
+// import Home from "./views/Home.vue";
 
 const isShow = ref(false);
 const setIsShow = (value) => {
@@ -22,7 +23,9 @@ provide("searchbar-keywords", {
 </script>
 
 <template>
-  <Home />
+  <!-- <Home /> -->
+  <Header></Header>
+  <router-view></router-view>
 </template>
 
 <style lang="css">

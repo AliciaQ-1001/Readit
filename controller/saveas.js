@@ -25,7 +25,7 @@ const saveas = async (srcUrl) => {
             }
           }).catch((e) => { })
         },
-        // accelerator: 'Ctrl+S'//好像无效？？
+        accelerator: 'Ctrl+S'//好像无效？？
       }
     ])
     contextMenu.popup()

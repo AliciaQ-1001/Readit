@@ -30,6 +30,8 @@ const openDialog = () => {
 const onRendererEvent = (cb) => {
   ipcRenderer.on('on-renderer-event', (e, msg) => {
     cb()
+    // console.log(msg);
+
   })
 }
 contextBridge.exposeInMainWorld('myApi', {

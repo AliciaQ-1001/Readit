@@ -4,6 +4,7 @@ import _ from "lodash";
 
 const { setIsShow } = inject("dialog-visible");
 const { setKeywords } = inject("searchbar-keywords");
+
 const handleClick = () => {
   setIsShow(true);
 };
@@ -15,6 +16,9 @@ const search = _.debounce((e) => {
 // const search = (e) => {
 //   console.log(e.target.value);
 // };
+defineExpose({
+  handleClick,
+});
 </script>
 
 <template>
