@@ -1,7 +1,7 @@
 const { app, screen, BrowserWindow, globalShortcut } = require('electron')
 const path = require('path');
 const WinState = require('electron-win-state').default
-
+const createTray = require('./tray')
 require('./controller/getSource')
 require('./controller/alert')
 require('./controller/openWindow')
@@ -38,15 +38,11 @@ const createWindow = () => {
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
+  createTray(app, mainWindow)
 }
 
 app.whenReady().then(() => {
   createWindow()
-  //   // globalShortcut.register('Control+Q', () => {
-  //   //   if (mainWindow) {
-  //   //     mainWindow.reload()
-  //   //   }
-  //   // })
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
